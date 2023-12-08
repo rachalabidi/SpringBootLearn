@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Arrays;
 import java.util.List;
 
-@Repository
 
-@Primary
+
 public class CustomerRepository implements ICustomerRepository {
     @Override
      public List<Customer> GetCustomers() {

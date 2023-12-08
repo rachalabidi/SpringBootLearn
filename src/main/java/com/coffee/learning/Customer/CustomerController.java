@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequestMapping(path = "api/v1/customer")
 @RestController
 public class CustomerController {
     private final CustomerService customerService;
@@ -14,7 +14,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
+    @GetMapping(value = "all")
     public List<Customer> GetCustomers() {
 
         return customerService.GetCustomers();

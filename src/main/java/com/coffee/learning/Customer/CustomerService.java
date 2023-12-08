@@ -1,5 +1,6 @@
 package com.coffee.learning.Customer;
 
+import com.coffee.learning.Exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,6 @@ public class CustomerService {
                 .stream()
                 .filter(customer -> customer.getId().equals(id))
                 .findFirst()
-                .orElseThrow(()-> new IllegalStateException("customer with "+id+ " not found "));
+                .orElseThrow(()-> new NotFoundException("customer with "+id+ " not found "));
     }
 }

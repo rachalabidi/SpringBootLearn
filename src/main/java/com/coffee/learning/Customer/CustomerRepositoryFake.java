@@ -1,9 +1,5 @@
 package com.coffee.learning.Customer;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +8,7 @@ public class CustomerRepositoryFake implements ICustomerRepository {
     public List<Customer> GetCustomers() {
 
         return Arrays.asList(
-                new Customer(1L,"from the fake repo" , "password123")
+                new Customer(1L,"from the fake repo" , "password123", "email@gmail.com")
         );
 
     }

@@ -21,7 +21,7 @@ public class CustomerController {
     public List<Customer> GetCustomers() {
 
         return Arrays.asList(
-                new Customer( 1L , "rasha FROM V1 DEPRECATED " , "coffeV1")
+                new Customer( 1L , "rasha FROM V1 DEPRECATED " , "coffeV1", "email@gmail.com")
         );
     }
 

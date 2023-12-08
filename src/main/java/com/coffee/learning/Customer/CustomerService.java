@@ -26,8 +26,8 @@ public class CustomerService {
 
         return customerRepository.GetCustomers()
                 .stream()
-                .filter(customer -> Objects.equals(customer.getId(), id))
+                .filter(customer -> customer.getId().equals(id))
                 .findFirst()
-                .orElseThrow(()-> new IllegalStateException("customer not found "));
+                .orElseThrow(()-> new IllegalStateException("customer with "+id+ " not found "));
     }
 }

@@ -12,7 +12,7 @@ public class CustomerRepositoryFake implements ICustomerRepository {
     public List<Customer> GetCustomers() {
 
         return Arrays.asList(
-                new Customer(1L,"from the fake repo")
+                new Customer(1L,"from the fake repo" , "password123")
         );
 
     }

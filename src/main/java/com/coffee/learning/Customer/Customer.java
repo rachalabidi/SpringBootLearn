@@ -1,23 +1,38 @@
 package com.coffee.learning.Customer;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Customer {
-    Long id;
-    String name ;
+    private   Long id;
+    private   String name ;
+    private final String password ;
 
-    public Customer() {
 
-    }
-
-    public Customer(Long id, String name) {
+    public Customer(Long id, String name, String password) {
         this.id = id;
         this.name = name;
+        this.password = password;
     }
 
+@JsonIgnore // TO NOT SHOW IT  L CLIENT
+    public String getPassword() {
+        return password;
+    }
+
+
+
+
+@JsonProperty("CustomerId") // to change l'affichage name
     public Long getId() {
         return id;
     }
+
+    // The getter are responsible for sending the properties (this is how the library jackson working )
+  //  public Long getIdCustomer() {
+    //    return id;
+    //}
 
     public void setId(Long id) {
         this.id = id;
@@ -36,6 +51,7 @@ public class Customer {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.coffee.learning.Customer;
 
+import com.coffee.learning.Exception.ApiRequestException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,13 @@ public class CustomerControllerV2 {
     public Customer GetCustomer(@PathVariable("customerId") Long id) {
 
         return customerService.GetCustomer(id);
+    }
+    @GetMapping(path = "{customerId}/exception")
+    public Customer GetCustomerException(@PathVariable("customerId") Long id) {
+
+        throw    new ApiRequestException(
+                "ApiRequestException for Customer "+id
+        );
     }
     @PostMapping
     void createNewCustomer(@Valid @RequestBody  Customer customer) {

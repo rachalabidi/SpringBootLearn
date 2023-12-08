@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CustomerService {
@@ -18,5 +20,14 @@ public class CustomerService {
     public List<Customer> GetCustomers() {
 
         return  customerRepository.GetCustomers() ;
+    }
+
+    public Customer GetCustomer( Long id ) {
+
+        return customerRepository.GetCustomers()
+                .stream()
+                .filter(customer -> Objects.equals(customer.getId(), id))
+                .findFirst()
+                .orElseThrow(()-> new IllegalStateException("customer not found "));
     }
 }

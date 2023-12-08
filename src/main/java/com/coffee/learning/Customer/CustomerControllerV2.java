@@ -27,11 +27,7 @@ public class CustomerControllerV2 {
     @GetMapping(path = "{customerId}")
     public Customer GetCustomer(@PathVariable("customerId") Long id) {
 
-        return customerService.GetCustomers()
-                .stream()
-                .filter(customer -> Objects.equals(customer.getId(), id))
-                .findFirst()
-                .orElseThrow(()-> new IllegalStateException("customer not found "));
+        return customerService.GetCustomer(id);
     }
     @PostMapping
     void createNewCustomer(@RequestBody Customer customer) {
